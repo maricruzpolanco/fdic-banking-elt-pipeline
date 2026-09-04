@@ -1,7 +1,7 @@
 {
   "name": "FDIC Banking ELT Pipeline",
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
-  "postCreateCommand": "pip install -r requirements.txt",
+  "postCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh && ~/.local/bin/uv sync",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -12,6 +12,7 @@
     }
   },
   "remoteEnv": {
-    "PYTHONPATH": "${containerWorkspaceFolder}"
+    "PYTHONPATH": "${containerWorkspaceFolder}",
+    "PATH": "${containerEnv:PATH}:${containerEnv:HOME}/.local/bin"
   }
 }
