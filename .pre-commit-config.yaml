@@ -14,3 +14,12 @@ repos:
       - id: check-merge-conflict
       - id: check-yaml
       - id: check-json
+
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy type check
+        entry: uv run mypy src/
+        language: system
+        pass_filenames: false
+        types: [python]
